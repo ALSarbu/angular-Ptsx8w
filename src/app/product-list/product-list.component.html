@@ -1,0 +1,28 @@
+<h2>Products</h2>
+<div *ngFor="let product of products">
+  <!--with *ngFor, the <div repeates for each product i the list-->
+
+  <h3>
+    <a [title]="product.name + ' details'"> <!--when hover over each product. Property binding [] lets you   use the property value in a template expression. -->
+      {{ product.name }} <!-- interpolation {{ }}, let's you render the property value as text-->
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">
+    Description:{{ product.description }} <!--the <p> element will be created only if the current product has a description.-->
+  </p>
+
+  <button type="button" (click)="share()">
+    Share
+  </button>
+
+  <app-product-alerts [product]="product">
+  </app-product-alerts>
+
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
